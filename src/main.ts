@@ -21,3 +21,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+
+
+
+
+for (let i = 10000; i < 20000; i++) {
+  const Period = 364 / 365;
+  const InterestRate = 0.002;
+
+  let Interest = Math.floor(i * InterestRate * Period);
+
+  let IncomeTax = Math.floor(Interest * 0.15);
+  let ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
+  let LocalTax = Math.floor(Interest * 0.05);
+
+  let NetIncome =
+    Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
+
+  let ActuallyInterest = NetIncome / i;
+
+  // console.log(
+  //   i,
+  //   NetIncome,
+  //   IncomeTax,
+  //   ReconstructionIncomeTax,
+  //   LocalTax,
+  //   ActuallyInterest
+  // );
+
+  let data = [i, ActuallyInterest];
+
+  console.log(data);
+}
