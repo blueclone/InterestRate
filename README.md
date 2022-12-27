@@ -24,4 +24,4 @@ vite : 4.0.0
 
 blueclone
 
-## Licence
+## License
