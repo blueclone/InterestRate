@@ -18,71 +18,69 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-  <h1 class="heading-interest">預金金利計算</h1>
-  <div>
-    <div class="input-label-interest">
-      <label for="money-interest">預け入れ金額</label>
-      <input
-        type="inputinterest"
-        name="money-interest"
-        id="money-interest"
-        min="10000"
-        placeholder="1万円以上"
-      />円
-    </div>
-    <div class="input-label-interest">
-      <label for="days-interest">預け入れ日数</label>
-      <input
-        type="inputinterest"
-        name="days-interest"
-        id="days-interest"
-        min="1"
-        placeholder="1日以上"
-      />日
-    </div>
-    <div class="input-label-interest">
-      <label for="rate-interest">利率</label>
-      <input
-        type="inputinterest"
-        name="rate-interest"
-        id="rate-interest"
-        placeholder="0.001%単位"
-      />%
-    </div>
-  </div>
+  <h1 class="heading-interest">Actually Interest Rate Calculator</h1>
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 
+const moneyinterest = document.querySelector("#money-interest");
+const daysinterest = document.querySelector("#days-interest");
+const rateinterest = document.querySelector("#rate-interest]");
+const actuallyrate = document.querySelector("input[name=rate-interest]");
 
+const Period: number = daysinterest / 365;
+const Interest: number = Math.floor(moneyinterest * rateinterest * Period);
 
+const IncomeTax = Math.floor(Interest * 0.15);
+const ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
+const LocalTax = Math.floor(Interest * 0.05);
 
-for (let i = 10000; i < 20000; i++) {
-  const Period = 364 / 365;
-  const InterestRate = 0.002;
-
-  let Interest = Math.floor(i * InterestRate * Period);
-
-  let IncomeTax = Math.floor(Interest * 0.15);
-  let ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
-  let LocalTax = Math.floor(Interest * 0.05);
-
-  let NetIncome =
+const NetIncome =
     Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
 
-  let ActuallyInterest = NetIncome / i;
+const ActuallyInterest = NetIncome / i;
 
-  // console.log(
-  //   i,
-  //   NetIncome,
-  //   IncomeTax,
-  //   ReconstructionIncomeTax,
-  //   LocalTax,
-  //   ActuallyInterest
-  // );
 
-  let data = [i, ActuallyInterest];
-
-  console.log(data);
+const calc = ()=>{
+  actuallyrate.value = Number(ActuallyInterest.value);
 }
+
+moneyinterest.addEventListener("keyup", calc, false);
+daysinterest.addEventListener("keyup", calc, false);
+rateinterest.addEventListener("keyup", calc, false);
+
+
+
+
+
+
+
+// for (let i = 10000; i < 20000; i++) {
+//   const Period = 364 / 365;
+//   const InterestRate = 0.002;
+
+//   let Interest = Math.floor(i * InterestRate * Period);
+
+//   let IncomeTax = Math.floor(Interest * 0.15);
+//   let ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
+//   let LocalTax = Math.floor(Interest * 0.05);
+
+//   let NetIncome =
+//     Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
+
+//   let ActuallyInterest = NetIncome / i;
+
+//   console.log(
+//     i,
+//     NetIncome,
+//     IncomeTax,
+//     ReconstructionIncomeTax,
+//     LocalTax,
+//     ActuallyInterest
+//   );
+
+//   let data = [i, ActuallyInterest];
+
+//   console.log(data);
+// }
