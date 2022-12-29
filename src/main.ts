@@ -18,26 +18,38 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-  <div class="input_label">
-  <label for="inputinterest">預け入れ金額</label>
-  <input
-    type="inputinterest"
-    name="inputinterest"
-    id="inputinterest"
-    min="10000"
-    placeholder="1万円以上"
-  />円
-  <label for="days">預け入れ日数</label>
-  <input
-    type="inputinterest"
-    name="days"
-    id="days"
-    min="1"
-    placeholder="1日以上"
-  />日
-  <label for="inputinterest">利率</label>%
-  <input type="inputinterest" name="inputinterest" id="inputinterest" />
-</div>
+  <h1 class="heading-interest">預金金利計算</h1>
+  <div>
+    <div class="input-label-interest">
+      <label for="money-interest">預け入れ金額</label>
+      <input
+        type="inputinterest"
+        name="money-interest"
+        id="money-interest"
+        min="10000"
+        placeholder="1万円以上"
+      />円
+    </div>
+    <div class="input-label-interest">
+      <label for="days-interest">預け入れ日数</label>
+      <input
+        type="inputinterest"
+        name="days-interest"
+        id="days-interest"
+        min="1"
+        placeholder="1日以上"
+      />日
+    </div>
+    <div class="input-label-interest">
+      <label for="rate-interest">利率</label>
+      <input
+        type="inputinterest"
+        name="rate-interest"
+        id="rate-interest"
+        placeholder="0.001%単位"
+      />%
+    </div>
+  </div>
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
