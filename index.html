@@ -8,38 +8,43 @@
   </head>
   <body>
     <div id="app"></div>
+    <div>
+      <div class="input-label-interest">
+        <label for="money-interest">Deposit Amount</label>
+        <input
+          type="number"
+          name="money-interest"
+          id="money-interest"
+          value=""
+          min="10000"
+          placeholder="1万円以上"
+        />
+      </div>
+      <div class="input-label-interest">
+        <label for="days-interest">Deposit Days</label>
+        <input
+          type="number"
+          name="days-interest"
+          id="days-interest"
+          value=""
+          min="1"
+          placeholder="1日以上"
+        />
+      </div>
+      <div class="input-label-interest">
+        <label for="rate-interest">Interest Rate</label>
+        <input
+          type="number"
+          name="rate-interest"
+          id="rate-interest"
+          value=""
+        />%
+      </div>
+    </div>
+    <div>
+      <label for="actually-rate">Actually Interest Rate</label>
+      <input type="number" name="actually-rate" id="actually-rate" />
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-
-<!-- <div>
-  <div class="input-label-interest">
-    <label for="money-interest">預け入れ金額</label>
-    <input
-      type="inputinterest"
-      name="money-interest"
-      id="money-interest"
-      min="10000"
-      placeholder="1万円以上"
-    />円
-  </div>
-  <div class="input-label-interest">
-    <label for="days-interest">預け入れ日数</label>
-    <input
-      type="inputinterest"
-      name="days-interest"
-      id="days-interest"
-      min="1"
-      placeholder="1日以上"
-    />日
-  </div>
-  <div class="input-label-interest">
-    <label for="rate-interest">利率</label>
-    <input
-      type="inputinterest"
-      name="rate-interest"
-      id="rate-interest"
-      placeholder="0.001%単位"
-    />%
-  </div>
-</div> -->
