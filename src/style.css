@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -106,4 +106,35 @@ button:focus-visible {
 #inputinterest{
   flex-flow: column;
   justify-content: space-between;
+} */
+
+:root{
+  font-weight: 400;
+  line-height: 24px;
+
+  color-scheme: light dark;
+  background-color: #000000;
 }
+
+*{
+  box-sizing: border-box;
+}
+
+.heading-interest{
+  font-size: 48px;
+
+  text-align: center;
+}
+
+.input-label-interest{
+  font-size: 20px;
+  text-align: center;
+  
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.money-interest{
+  justify-content: space-around;
+}
+
