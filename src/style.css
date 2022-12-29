@@ -135,6 +135,9 @@ button:focus-visible {
 }
 
 .money-interest{
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-around; */
+
+  margin-left: 20px;
 }
 
