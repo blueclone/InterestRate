@@ -24,31 +24,33 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 
-const moneyinterest = document.querySelector("#money-interest");
-const daysinterest = document.querySelector("#days-interest");
-const rateinterest = document.querySelector("#rate-interest]");
-const actuallyrate = document.querySelector("input[name=rate-interest]");
+// const moneyinterest = document.querySelector("#money-interest");
+// const daysinterest = document.querySelector("#days-interest");
+// const rateinterest = document.querySelector("#rate-interest]");
+// const actuallyrate = document.querySelector("input[name=rate-interest]");
 
-const Period: number = daysinterest / 365;
-const Interest: number = Math.floor(moneyinterest * rateinterest * Period);
+// const Period: number = daysinterest / 365;
+// const Interest: number = Math.floor(moneyinterest * rateinterest * Period);
 
-const IncomeTax = Math.floor(Interest * 0.15);
-const ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
-const LocalTax = Math.floor(Interest * 0.05);
+// const IncomeTax = Math.floor(Interest * 0.15);
+// const ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
+// const LocalTax = Math.floor(Interest * 0.05);
 
-const NetIncome =
-    Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
+// const NetIncome =
+//     Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
 
-const ActuallyInterest = NetIncome / i;
+// const ActuallyInterest = NetIncome / i;
+
+// const calc = ()=>{
+//   actuallyrate.value = Number(ActuallyInterest.value);
+// }
+
+// moneyinterest.addEventListener("keyup", calc, false);
+// daysinterest.addEventListener("keyup", calc, false);
+// rateinterest.addEventListener("keyup", calc, false);
 
 
-const calc = ()=>{
-  actuallyrate.value = Number(ActuallyInterest.value);
-}
 
-moneyinterest.addEventListener("keyup", calc, false);
-daysinterest.addEventListener("keyup", calc, false);
-rateinterest.addEventListener("keyup", calc, false);
 
 
 
@@ -84,3 +86,36 @@ rateinterest.addEventListener("keyup", calc, false);
 
 //   console.log(data);
 // }
+
+
+
+
+
+function repeatHello(count: number): string {
+  return "hello".repeat(count);
+}
+console.log(11)
+
+function double(value: number | string) {
+  if(typeof value === "number") {
+    console.log(value*2);
+  }else{
+    console.log(value.repeat(2));
+  }
+}
+double(124);
+double("hello");
+
+
+
+
+
+
+
+const moneyinterest = document.querySelector("#money-interest");
+const daysinterest = document.querySelector("#days-interest");
+const rateinterest = document.querySelector("#rate-interest]");
+const actuallyrate = document.querySelector("input[name=rate-interest]");
+
+const Period: number = daysinterest / 365;
+const Interest: number = Math.floor(moneyinterest * rateinterest * Period);
