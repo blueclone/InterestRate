@@ -92,25 +92,25 @@ const outputInterestDom =
 const calc = () => {
   // actuallyRateInterest = Number(ActuallyInterest.value);
 
-  const moneyinterest = Number(moneyInterestDom?.value) ?? 0;
-  const daysinterest = Number(daysInterestDom?.value) ?? 0;
-  const rateinterest = Number(rateInterestDom?.value) ?? 0;
+  const moneyInterest = Number(moneyInterestDom?.value) ?? 0;
+  const daysInterest = Number(daysInterestDom?.value) ?? 0;
+  const rateInterest = Number(rateInterestDom?.value) ?? 0;
 
-  const Period = daysinterest / 365;
-  const Interest = Math.floor(moneyinterest * rateinterest * Period);
+  const period = daysInterest / 365;
+  const interest = Math.floor(moneyInterest * rateInterest * period);
 
-  const IncomeTax = Math.floor(Interest * 0.15);
-  const ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
-  const LocalTax = Math.floor(Interest * 0.05);
+  const IncomeTax = Math.floor(interest * 0.15);
+  const reconstructionIncomeTax = Math.floor(interest * 0.00315);
+  const localTax = Math.floor(interest * 0.05);
 
-  const NetIncome = Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
+  const netIncome = interest - IncomeTax - reconstructionIncomeTax - localTax;
 
-  const ActuallyInterest = NetIncome / moneyinterest;
+  const actuallyInterest = netIncome / moneyInterest;
 
-  console.log(ActuallyInterest);
+  console.log(actuallyInterest);
 
   outputInterestDom!.innerHTML = `
-  ${ActuallyInterest}
+  ${actuallyInterest}
 `;
 };
 
