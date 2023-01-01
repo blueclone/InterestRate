@@ -1,8 +1,8 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
+import "./style.css";
+import typescriptLogo from "./typescript.svg";
+import { setupCounter } from "./counter";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -19,10 +19,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </p>
   </div>
   <h1 class="heading-interest">Actually Interest Rate Calculator</h1>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
 // const moneyinterest = document.querySelector("#money-interest");
 // const daysinterest = document.querySelector("#days-interest");
@@ -48,15 +47,6 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 // moneyinterest.addEventListener("keyup", calc, false);
 // daysinterest.addEventListener("keyup", calc, false);
 // rateinterest.addEventListener("keyup", calc, false);
-
-
-
-
-
-
-
-
-
 
 // for (let i = 10000; i < 20000; i++) {
 //   const Period = 364 / 365;
@@ -89,33 +79,41 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 
 
+const moneyInterestDom =
+  document.querySelector<HTMLInputElement>("#money-interest");
+const daysInterestDom =
+  document.querySelector<HTMLInputElement>("#days-interest");
+const rateInterestDom =
+  document.querySelector<HTMLInputElement>("#rate-interest");
 
+const outputInterestDom =
+  document.querySelector<HTMLOutputElement>("#actually-interest");
 
-function repeatHello(count: number): string {
-  return "hello".repeat(count);
-}
-console.log(11)
+const calc = () => {
+  // actuallyRateInterest = Number(ActuallyInterest.value);
 
-function double(value: number | string) {
-  if(typeof value === "number") {
-    console.log(value*2);
-  }else{
-    console.log(value.repeat(2));
-  }
-}
-double(124);
-double("hello");
+  const moneyinterest = Number(moneyInterestDom?.value) ?? 0;
+  const daysinterest = Number(daysInterestDom?.value) ?? 0;
+  const rateinterest = Number(rateInterestDom?.value) ?? 0;
 
+  const Period = daysinterest / 365;
+  const Interest = Math.floor(moneyinterest * rateinterest * Period);
 
+  const IncomeTax = Math.floor(Interest * 0.15);
+  const ReconstructionIncomeTax = Math.floor(Interest * 0.00315);
+  const LocalTax = Math.floor(Interest * 0.05);
 
+  const NetIncome = Interest - IncomeTax - ReconstructionIncomeTax - LocalTax;
 
+  const ActuallyInterest = NetIncome / moneyinterest;
 
+  console.log(ActuallyInterest);
 
+  outputInterestDom!.innerHTML = `
+  ${ActuallyInterest}
+`;
+};
 
-const moneyinterest = document.querySelector("#money-interest");
-const daysinterest = document.querySelector("#days-interest");
-const rateinterest = document.querySelector("#rate-interest]");
-const actuallyrate = document.querySelector("input[name=rate-interest]");
-
-const Period: number = daysinterest / 365;
-const Interest: number = Math.floor(moneyinterest * rateinterest * Period);
+moneyInterestDom?.addEventListener("keyup", calc, false);
+daysInterestDom?.addEventListener("keyup", calc, false);
+rateInterestDom?.addEventListener("keyup", calc, false);
