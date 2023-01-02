@@ -77,8 +77,6 @@ setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 //   console.log(data);
 // }
 
-
-
 const moneyInterestDom =
   document.querySelector<HTMLInputElement>("#money-interest");
 const daysInterestDom =
@@ -86,18 +84,19 @@ const daysInterestDom =
 const rateInterestDom =
   document.querySelector<HTMLInputElement>("#rate-interest");
 
+const outputRateInterestDom = document.querySelector<HTMLOutputElement>(
+  "#actually-rate-interest"
+);
 const outputInterestDom =
   document.querySelector<HTMLOutputElement>("#actually-interest");
 
 const calc = () => {
-  // actuallyRateInterest = Number(ActuallyInterest.value);
-
   const moneyInterest = Number(moneyInterestDom?.value) ?? 0;
   const daysInterest = Number(daysInterestDom?.value) ?? 0;
   const rateInterest = Number(rateInterestDom?.value) ?? 0;
 
   const period = daysInterest / 365;
-  const interest = Math.floor(moneyInterest * rateInterest * period / 100);
+  const interest = Math.floor((moneyInterest * rateInterest * period) / 100);
 
   const incomeTax = Math.floor(interest * 0.15);
   const reconstructionIncomeTax = Math.floor(interest * 0.00315);
@@ -109,10 +108,12 @@ const calc = () => {
 
   console.log(actuallyInterest, netIncome);
 
-  outputInterestDom!.innerHTML = `
+  outputRateInterestDom!.innerHTML = `
   ${actuallyInterest}
-  ${netIncome}
 `;
+  outputInterestDom!.innerHTML = `
+  ${netIncome}
+  `;
 };
 
 moneyInterestDom?.addEventListener("keyup", calc, false);
